@@ -1,5 +1,8 @@
 # Brew
 
+## Introduction
+Following our mantra of ‘simplifying everything’, Brew removes the need for a separate IP phone in your meeting rooms to place an order with the canteen staff. Now, with a few taps on your personal Dx or the touch panel of a Room Device, you can easily place an order with the canteen. The staff in the canteen can view the order in real-time via a website and service it.
+
 ## Table of contents
 * [Components](#components)
 * [Prerequisite](#Prerequisite)
@@ -25,22 +28,21 @@ Create a User on the endpoint. To do this, you need to access the admin panel of
 ![alt text](https://user-images.githubusercontent.com/12582569/54212591-2e943d80-4509-11e9-8978-28a5e3188387.png)
 
 ### Step 2
-Upload the XML File **roomcontrolconfig.xml** available in the repository to the system. To do so, visit the admin panel of the device. Under **Integrations**, click **In-room Control** and launch the Editor. Upload the XML file to the endpoint.
-
-![alt text](https://user-images.githubusercontent.com/12582569/54215654-4b7f3f80-450e-11e9-9217-fb998c876d8f.png)
-
-### Step 3
 Clone the repository using the following command
 ```
 $ git clone https://github.com/CiscoSE/Brew.git
 ```
+
+### Step 3
+Upload the XML File **roomcontrolconfig.xml** available in the repository to the system. To do so, visit the admin panel of the device. Under **Integrations**, click **In-room Control** and launch the Editor. Upload the XML file to the endpoint.
+
+![alt text](https://user-images.githubusercontent.com/12582569/54215654-4b7f3f80-450e-11e9-9217-fb998c876d8f.png)
 
 ### Step 4
 Make the change to IP address in the **main.js**.
 ```
 const ipAddress = "ssh://ENDPOINT_IPADDRESS"
 ```
-
 
 ### Step 6
 Install Dependencies
@@ -52,10 +54,4 @@ $ meteor npm install
 Run the code
 ```
 $ meteor
-```
-
-### Step 8
-Run the code with updates
-```
-$ bash
 ```

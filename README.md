@@ -13,14 +13,14 @@
 ## Prerequisite
 * NodeJS installed on your laptop: https://nodejs.org/en/download/
 * MeteorJS installed on your laptop: https://blog.ajduke.in/2015/09/29/guide-to-meteor-install-and-uninstall/
-* You must have admin access to the Cisco Endpoint 
+* You must have admin access to the Cisco Endpoint
 
-	
+
 ## Setup
 To run this project, complete the following steps:
 
 ### Step 1
-Create a User on the endpoint. To do this, you need to access the admin panel of the device. Add a new User with username and password as **integrator**. 
+Create a User on the endpoint. To do this, you need to access the admin panel of the device. Add a new User with username and password as **integrator**.
 
 ![alt text](https://user-images.githubusercontent.com/12582569/54212591-2e943d80-4509-11e9-8978-28a5e3188387.png)
 
@@ -32,7 +32,7 @@ Upload the XML File **roomcontrolconfig.xml** available in the repository to the
 ### Step 3
 Clone the repository using the following command
 ```
-$ git clone https://github.com/5t3v3n/Brew.git
+$ git clone https://github.com/CiscoSE/Brew.git
 ```
 
 ### Step 4
@@ -49,15 +49,13 @@ $ meteor npm install
 ```
 
 ### Step 7
-Run the code 
+Run the code
 ```
 $ meteor
 ```
 
 ### Step 8
-Run the code with updates 
+Run the code with updates
 ```
-$ bash 
+$ bash
 ```
-
-

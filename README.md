@@ -1,4 +1,5 @@
 # Brew
+[![published](https://static.production.devnetcloud.com/codeexchange/assets/images/devnet-published.svg)](https://developer.cisco.com/codeexchange/github/repo/CiscoSE/Brew)
 
 ## Introduction
 Following our mantra of ‘simplifying everything’, Brew removes the need for a separate IP phone in your meeting rooms to place an order with the canteen staff. Now, with a few taps on your personal Dx or the touch panel of a Room Device, you can easily place an order with the canteen. The staff in the canteen can view the order in real-time via a website and service it.
@@ -55,4 +56,3 @@ Run the code
 ```
 $ meteor
 ```
-[![published](https://static.production.devnetcloud.com/codeexchange/assets/images/devnet-published.svg)](https://developer.cisco.com/codeexchange/github/repo/CiscoSE/Brew)

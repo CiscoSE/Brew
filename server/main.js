@@ -1,27 +1,29 @@
+/*
+
+Copyright (c) 2019 Cisco and/or its affiliates.
+
+This software is licensed to you under the terms of the Cisco Sample
+Code License, Version 1.1 (the "License"). You may obtain a copy of the
+License at
+
+               https://developer.cisco.com/docs/licenses
+
+All use of the material herein must be in accordance with the terms of
+the License. All rights not expressly granted by the License are
+reserved. Unless required by applicable law or agreed to separately in
+writing, software distributed under the License is distributed on an "AS
+IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express
+or implied.
+
+*/
+
 import '../imports/ui/body.js';
 import '../imports/api/tasks.js';
 import { Meteor } from 'meteor/meteor';
+import { Tasks } from "../imports/api/tasks";
 
 Meteor.startup(() => {
-  // code to run on server at startup
-  //WebApp.rawConnectHandlers.use(function(req, res, next) {
-  //res.setHeader("Access-Control-Allow-Origin", "*");
-  //return next();
-
-  Meteor.methods({
-    spaces: function (token) {
-      console.log(token);
-      const spaces = HTTP.get('https://api.ciscospark.com/v1/rooms', { headers: { "Content-type": "application/json", Authorization: 'Bearer ' + token }, params: { "type": "group", "sortby": "lastactivity", "max": "25" } })
-      return spaces;
-    },
-    members: function () {
-      const members = HTTP.get('https://api.ciscospark.com/v1/memberships', { headers: { "Content-type": "application/json", Authorization: 'Bearer ZmI0Njk0NzgtMTg4NC00ZGVlLWJlNTktYWVjYzY3NWI3YWRjZjIwMjUxNWItMDFm' }, params: { "roomId": "Y2lzY29zcGFyazovL3VzL1JPT00vZThiNmQzOTAtNGExMy0xMWU4LTgxYjctMjdiZTQwNmRkOGE3" } })
-      return members;
-    }
-  });
 });
-
-
 
 
 var MongoClient = require('mongodb').MongoClient;
@@ -30,7 +32,7 @@ var url = "mongodb://localhost:3001/";
 const jsxapi = require('jsxapi')
 
 //ENTER THE DEVICE IP ADDRESS HERE
-const ipAddress = "ssh://10.105.16.78"
+const ipAddress = "ssh://10.105.16.57"
 const xapi = jsxapi.connect(ipAddress, {
   username: 'integrator',
   password: 'integrator'
@@ -61,14 +63,14 @@ xapi.on('error', (err) => {
 })
 
 var roomName;
-  // Retrieve and display the Endpoint Name
-     xapi.status
-         .get('UserInterface')
-         .then((contactinfo) => {
-             logger.info(`Established Connection to Endpoint : ${contactinfo.ContactInfo.Name}`);
-             roomName=contactinfo.ContactInfo.Name;
-             logger.info("*** READY FOR INPUT FROM PANEL ***")
-         });
+// Retrieve and display the Endpoint Name
+xapi.status
+    .get('UserInterface')
+    .then((contactinfo) => {
+        logger.info(`Established Connection to Endpoint : ${contactinfo.ContactInfo.Name}`);
+        roomName=contactinfo.ContactInfo.Name;
+        logger.info("*** READY FOR INPUT FROM PANEL ***")
+    });
 
 
 //Calling the Concierge
@@ -95,7 +97,6 @@ xapi.event.on('UserInterface Extensions Widget Action', (event) => {
             var dbp = db.db("meteor");
             dbp.collection("polls").updateOne(myquery, newvalues, function(err, res) {
                 if (err) throw err;
-                logger.debug("Update Exisiting Record");
                 db.close();
               });
           }
@@ -106,7 +107,6 @@ xapi.event.on('UserInterface Extensions Widget Action', (event) => {
               var myobj = { roomName: roomName, pollState : "Inactive" };
               dbo.collection("polls").insertOne(myobj, function(err, res) {
                 if (err) throw err;
-                logger.debug("Created New Record");
                 db.close();
               });
           }

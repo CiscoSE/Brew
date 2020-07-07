@@ -11,7 +11,7 @@
     "meteor-node-stubs": "^0.3.2",
     "mki-font-ciscosans": "^1.0.0",
     "mongodb": "^3.1.13",
-    "npm": "^6.9.0",
+    "npm": "^6.14.6",
     "winston": "^3.2.1"
   }
 }
